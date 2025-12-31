@@ -1,8 +1,8 @@
-# YAIM0425 d01b – Compacted Entities 1x1 🧱
+# YAIM904 d01b – Compacted Entities 1x1 🧱
 
 ## 📦 Description
 
-**YAIM0425 d01b – Compacted Entities 1x1** creates **compact versions of many vanilla and modded entities**, reducing their footprint to **1×1 tiles** while preserving their original functionality.
+**YAIM904 d01b – Compacted Entities 1x1** creates **compact versions of many vanilla and modded entities**, reducing their footprint to **1×1 tiles** while preserving their original functionality.
 
 This MOD is designed to dramatically reduce factory size, allowing extremely dense layouts without changing how machines behave internally.
 
@@ -51,11 +51,11 @@ No configuration is required from the player.
 ## 🔗 Repository
 
 **MOD**
-[YAIM0425 d01b 1x1 entities](https://github.com/yaim0425/YAIM0425-d01b-1x1-entities)
+[YAIM904 d01b 1x1 entities](https://github.com/yaim0425/YAIM904-d01b-1x1-entities)
 
 **Required**
 
-[YAIM0425 d00b Core](https://github.com/yaim0425/YAIM0425-d00b-core)
+[YAIM904 d00b Core](https://github.com/yaim0425/YAIM904-d00b-core)
 
 ---
 
@@ -67,20 +67,20 @@ Suggestions, ideas, and balance feedback are welcome on the GitHub repository.
 
 ## 🖼️ Screenshots
 
-![Screenshot 1](https://github.com/yaim0425/YAIM0425-d01b-1x1-entities/raw/code/screenshot/(1).png)
+![Screenshot 1](https://github.com/yaim0425/YAIM904-d01b-1x1-entities/raw/code/screenshot/(1).png)
 
-![Screenshot 2](https://github.com/yaim0425/YAIM0425-d01b-1x1-entities/raw/code/screenshot/(2).png)
+![Screenshot 2](https://github.com/yaim0425/YAIM904-d01b-1x1-entities/raw/code/screenshot/(2).png)
 
-![Screenshot 3](https://github.com/yaim0425/YAIM0425-d01b-1x1-entities/raw/code/screenshot/(3).png)
+![Screenshot 3](https://github.com/yaim0425/YAIM904-d01b-1x1-entities/raw/code/screenshot/(3).png)
 
-![Screenshot 4](https://github.com/yaim0425/YAIM0425-d01b-1x1-entities/raw/code/screenshot/(4).png)
+![Screenshot 4](https://github.com/yaim0425/YAIM904-d01b-1x1-entities/raw/code/screenshot/(4).png)
 
-![Screenshot 5](https://github.com/yaim0425/YAIM0425-d01b-1x1-entities/raw/code/screenshot/(5).png)
+![Screenshot 5](https://github.com/yaim0425/YAIM904-d01b-1x1-entities/raw/code/screenshot/(5).png)
 
-![Screenshot 6](https://github.com/yaim0425/YAIM0425-d01b-1x1-entities/raw/code/screenshot/(6).png)
+![Screenshot 6](https://github.com/yaim0425/YAIM904-d01b-1x1-entities/raw/code/screenshot/(6).png)
 
-![Screenshot 7](https://github.com/yaim0425/YAIM0425-d01b-1x1-entities/raw/code/screenshot/(7).png)
+![Screenshot 7](https://github.com/yaim0425/YAIM904-d01b-1x1-entities/raw/code/screenshot/(7).png)
 
-![Screenshot 8](https://github.com/yaim0425/YAIM0425-d01b-1x1-entities/raw/code/screenshot/(8).png)
+![Screenshot 8](https://github.com/yaim0425/YAIM904-d01b-1x1-entities/raw/code/screenshot/(8).png)
 
-![Screenshot 9](https://github.com/yaim0425/YAIM0425-d01b-1x1-entities/raw/code/screenshot/(9).png)
+![Screenshot 9](https://github.com/yaim0425/YAIM904-d01b-1x1-entities/raw/code/screenshot/(9).png)

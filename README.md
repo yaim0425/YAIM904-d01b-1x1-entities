@@ -8,7 +8,7 @@
 
 This MOD is designed to dramatically reduce factory size, allowing extremely dense layouts without changing how machines behave internally.
 
-Each compacted entity is a **separate item**, recipe, and technology (when applicable), leaving the original entities untouched.
+Each compacted entity is a **separate item**, recipe and technology (when applicable), leaving the original entities untouched.
 
 ---
 
@@ -20,7 +20,7 @@ Each compacted entity is a **separate item**, recipe, and technology (when appli
 
   * Occupy **only one tile**
   * Keep their original behavior and purpose
-  * Have adjusted graphics, connections, and interaction points
+  * Have adjusted graphics, connections and interaction points
 * Each compacted entity is:
 
   * Crafted separately
@@ -63,7 +63,7 @@ No configuration is required from the player.
 
 ## ❤️ Support
 
-Suggestions, ideas, and balance feedback are welcome on the GitHub repository.
+Suggestions, ideas and balance feedback are welcome on the GitHub repository.
 
 ---
 

@@ -1,5 +1,7 @@
 # YAIM904 d01b – Compacted Entities 1x1 🧱
 
+---
+
 ## 📦 Description
 
 **YAIM904 d01b – Compacted Entities 1x1** creates **compact versions of many vanilla and modded entities**, reducing their footprint to **1×1 tiles** while preserving their original functionality.

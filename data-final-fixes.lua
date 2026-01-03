@@ -936,6 +936,8 @@ function This_MOD.create_tech(space)
 
     --- Tech se activa con una fabricación
     if Tech.research_trigger then
+        Tech.hidden = true
+        Tech.prerequisites = {}
         Tech.research_trigger = {
             type = "craft-item",
             item = space.item.name,

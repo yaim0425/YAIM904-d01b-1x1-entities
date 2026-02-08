@@ -673,12 +673,14 @@ function This_MOD.create_entity(space)
             local Key = dir .. "_position"
             for _, value in pairs(Points or {}) do
                 if value[Key] then
-                    if value[Key][1] == 0 and value[Key][2] == 0 then
+                    if value[Key].x == 0 and value[Key].y == 0 then
+                        value[Key] = nil
+                    elseif value[Key][1] == 0 and value[Key][2] == 0 then
                         value[Key] = nil
                     else
                         value[Key] = {
-                            value[Key][1] * Factor[1],
-                            value[Key][2] * Factor[2]
+                            (value[Key][1] or value[Key].x) * Factor[1],
+                            (value[Key][2] or value[Key].y) * Factor[2]
                         }
                     end
                 end

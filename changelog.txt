@@ -1,3 +1,7 @@
+Version: 0.0.3
+Date: 2026-02-15
+Info:
+  - Correction when scaling values for entity display
 ---------------------------------------------------------------------------------------------------
 Version: 0.0.2
 Date: 2026-01-31

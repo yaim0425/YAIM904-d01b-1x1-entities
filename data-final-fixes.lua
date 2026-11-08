@@ -40,9 +40,6 @@ function This_MOD.start()
         end
     end
 
-    --- Fijar las posiciones actual
-    GMOD.d00b.change_orders()
-
     --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
 end
 
@@ -257,14 +254,15 @@ function This_MOD.get_elements()
             This_MOD.id .. "-" ..
             That_MOD.name
 
-        if GMOD.entities[Name] then return end
+        if GMOD.entity[Name] then return end
 
         --- Ignorar las entidades enlistadas
         if This_MOD.ignore_entities[That_MOD.name] then return end
 
+
         --- Sin recompensa
         if not entity.minable then return end
-        if not entity.minable.results then return end
+        if not GMOD.get_format_minable(entity) then return end
 
         --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
 
@@ -330,13 +328,18 @@ function This_MOD.get_elements()
         --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
 
         local Space = {}
+        Space.name = Name
         Space.item = item
         Space.entity = entity
-        Space.name = Name
 
         Space.recipe = GMOD.recipes[Space.item.name]
         Space.tech = GMOD.get_technology(Space.recipe, true)
+
         Space.recipe = Space.recipe and Space.recipe[1] or nil
+
+        for key, value in pairs(Space) do
+            Space[key] = GMOD.copy_with_format(value)
+        end
 
         --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
 
@@ -364,8 +367,8 @@ function This_MOD.get_elements()
     --- Preparar los datos a usar
     --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
 
-    for item_name, entity in pairs(GMOD.entities) do
-        validate_entity(GMOD.items[item_name], entity)
+    for item_name, entity in pairs(GMOD.entity) do
+        validate_entity(GMOD.item[item_name], entity)
     end
 
     --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
@@ -379,7 +382,7 @@ function This_MOD.create_item(space)
     --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
 
     if not space.item then return end
-    if GMOD.items[space.name] then return end
+    if GMOD.item[space.name] then return end
 
     --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
 
@@ -405,10 +408,6 @@ function This_MOD.create_item(space)
 
     --- Nombre
     Item.name = space.name
-
-    --- Apodo y descripción
-    Item.localised_name = GMOD.copy(space.entity.localised_name)
-    Item.localised_description = GMOD.copy(space.entity.localised_description)
 
     --- Entidad a crear
     Item.place_result = Item.name
@@ -442,10 +441,10 @@ function This_MOD.create_item(space)
 
         --- Renombrar
         local Subgroup = GMOD.subgroups[Item.subgroup]
-        local Order = GMOD.subgroups[space.item.subgroup].order
+        local oldOrder = GMOD.subgroups[space.item.subgroup].order or ""
 
         --- Actualizar el order
-        Subgroup.order = 0 .. Order:sub(2)
+        Subgroup.order = "01-" .. oldOrder
     end
 
     --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
@@ -469,7 +468,7 @@ function This_MOD.create_entity(space)
     --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
 
     if not space.entity then return end
-    if GMOD.entities[space.name] then return end
+    if GMOD.entity[space.name] then return end
 
     --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
 
@@ -615,7 +614,7 @@ function This_MOD.create_entity(space)
             That_MOD.name
 
         --- La entidad ya existe
-        if GMOD.entities[Name] then return Name end
+        if GMOD.entity[Name] then return Name end
 
         --- La entidad existirá
         for _, Spaces in pairs(This_MOD.to_be_processed) do
@@ -628,7 +627,7 @@ function This_MOD.create_entity(space)
     end)(Entity.next_upgrade)
 
     --- Igualar las categorías
-    Entity.crafting_categories = space.entity.crafting_categories
+    Entity.crafting_categories = GMOD.entity[space.entity.name].crafting_categories
     Entity.resource_categories = space.entity.resource_categories
 
     --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
@@ -837,10 +836,6 @@ function This_MOD.create_recipe(space)
     --- Nombre
     Recipe.name = space.name
 
-    --- Apodo y descripción
-    Recipe.localised_name = GMOD.copy(space.entity.localised_name)
-    Recipe.localised_description = GMOD.copy(space.entity.localised_description)
-
     --- Tiempo de fabricación
     Recipe.energy_required = 3 * (Recipe.energy_required or 0.5)
 
@@ -855,7 +850,7 @@ function This_MOD.create_recipe(space)
     Recipe.enabled = space.tech == nil
 
     --- Nombre del nuevo subgrupo
-    Recipe.subgroup = GMOD.items[space.name].subgroup
+    Recipe.subgroup = GMOD.item[space.name].subgroup
 
     --- Ingredientes
     Recipe.ingredients = { {
@@ -918,10 +913,6 @@ function This_MOD.create_tech(space)
 
     --- Nombre
     Tech.name = space.name .. "-tech"
-
-    --- Apodo y descripción
-    Tech.localised_name = GMOD.copy(space.entity.localised_name)
-    Tech.localised_description = GMOD.copy(space.entity.localised_description)
 
     --- Cambiar icono
     Tech.icons = GMOD.copy(space.item.icons)

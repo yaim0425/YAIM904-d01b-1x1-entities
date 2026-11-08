@@ -1,11 +1,11 @@
 {
-    "name":  "YAIM904-d01b-1x1-entities",
-    "version":  "1.0.0",
-    "title":  "YAIM904 d01b 1x1 entities",
-    "author":  "YAIM904",
-    "factorio_version":  "2.0",
-    "description":  "1x1 miniaturization of various entities: assemblers, electric furnaces, etc. [[I accept suggestions]]",
-    "homepage":  "https://github.com/yaim0425/YAIM904-d01b-1x1-entities",
+    "name": "YAIM904-d01b-1x1-entities",
+    "version": "1.0.0",
+    "title": "YAIM904 d01b 1x1 entities",
+    "author": "YAIM904",
+    "factorio_version": "2.0",
+    "description": "1x1 miniaturization of various entities: assemblers, electric furnaces, etc. [[I accept suggestions]]",
+    "homepage": "https://github.com/yaim0425/YAIM904-d01b-1x1-entities",
     "dependencies":  [
         "YAIM904-d00b-core >= 1.0.0"
     ]
